@@ -1,4 +1,4 @@
-module.exports = ({ name, price1, price2, receiptId }) => {
+module.exports = ({name, rollno, english, mathematics, physics, chemistry, computerScience}) => {
     const today = new Date();
 return `
     <!doctype html>
@@ -86,10 +86,10 @@ return `
                    <td colspan="2">
                       <table>
                          <tr>
-                            <td class="title"><img  src="https://i2.wp.com/cleverlogos.co/wp-content/uploads/2018/05/reciepthound_1.jpg?fit=800%2C600&ssl=1"
+                            <td class="title"><img  src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.myscoolserver.com%2Fmss%2Fcbse-color-logo%2F&psig=AOvVaw1rmpvHg7sMOsaA4FudYA9q&ust=1684316010067000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCKjqzZ7E-f4CFQAAAAAdAAAAABAI"
                                style="width:100%; max-width:156px;"></td>
                             <td>
-                               Datum: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
+                               Date: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
                             </td>
                          </tr>
                       </table>
@@ -100,30 +100,44 @@ return `
                       <table>
                          <tr>
                             <td>
-                               Customer name: ${name}
+                              Student Name: ${name}
                             </td>
                             <td>
-                               Receipt number: ${receiptId}
+                               Roll number: ${rollno}
                             </td>
                          </tr>
                       </table>
                    </td>
                 </tr>
                 <tr class="heading">
-                   <td>Bought items:</td>
-                   <td>Price</td>
+                   <td>Subjects:</td>
+                   <td>Marks</td>
+                </tr>
+                
+                <tr class="item">
+                   <td>English:</td>
+                   <td>${english}</td>
                 </tr>
                 <tr class="item">
-                   <td>First item:</td>
-                   <td>${price1}$</td>
-                </tr>
-                <tr class="item">
-                   <td>Second item:</td>
-                   <td>${price2}$</td>
-                </tr>
+                <td>Physics:</td>
+                <td>${physics}</td>
+             </tr>
+             <tr class="item">
+             <td>Mathematics:</td>
+             <td>${mathematics}</td>
+          </tr>
+          <tr class="item">
+          <td>Chemistry:</td>
+          <td>${chemistry}</td>
+            </tr>
+            <tr class="item">
+            <td>Computer Science:</td>
+            <td>${computerScience}</td>
+         </tr>
              </table>
              <br />
-             <h1 class="justify-center">Total price: ${parseInt(price1) + parseInt(price2)}$</h1>
+             <h1 class="justify-center">Total Marks: ${(parseInt(english) + parseInt(physics) + parseInt(mathematics) + parseInt(chemistry) + parseInt(computerScience))}</h1>
+             <h1 class="justify-center">Percentage: ${((parseInt(english) + parseInt(physics) + parseInt(mathematics) + parseInt(chemistry) + parseInt(computerScience))/500 * 100).toFixed(2)}</h1>
           </div>
        </body>
     </html>
